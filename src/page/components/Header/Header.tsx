@@ -4,47 +4,26 @@ import { FaShoppingCart } from "react-icons/fa";
 import { FaUser } from "react-icons/fa";
 import { CiSearch } from "react-icons/ci";
 import { IoHomeOutline } from "react-icons/io5";
-import NavItem from "./_components/NavItem";
-const menuItems = [
-  {
-    title: "Sửa Main - Nguồn - Wifi",
-    items: [
-      { label: "Dịch vụ bo chủ cho laptop", link: "#" },
-      { label: "Thay bàn phím laptop", link: "#" },
-      { label: "Dịch vụ bo chủ cho laptop", link: "#" },
-      { label: "Thay bàn phím laptop", link: "#" },
-    ],
-  },
-  {
-    title: "Sửa Màn Hình - Pin - Cảm Ứng",
-    items: [
-      { label: "Thay màn hình laptop", link: "#" },
-      { label: "Thay pin laptop", link: "#" },
-      { label: "Sửa cảm ứng", link: "#" },
-      { label: "Dịch vụ khác", link: "#" },
-    ],
-  },
-  {
-    title: "Sửa Laptop - Đổi Linh Kiện",
-    items: [
-      { label: "Sửa laptop nhanh", link: "#" },
-      { label: "Thay linh kiện chính hãng", link: "#" },
-      { label: "Kiểm tra lỗi phần cứng", link: "#" },
-      { label: "Dịch vụ vệ sinh laptop", link: "#" },
-    ],
-  },
-];
+import { useState } from "react";
+import { navItems } from "./_components/DataNavItem";
 
-const Header = ({ isMenuOpen, setIsMenuOpen }: any) => {
+const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuMobileOpen, setIsMenuMobileOpen] = useState(false);
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+  const handleMenuToggle = () => {
+    setIsMenuMobileOpen(!isMenuMobileOpen);
+  };
+  console.log("isMenuMobileOpen", isMenuMobileOpen);
   return (
     <>
       <header className="">
         <div className="container">
           <div className="header__top">
-            <div className="header__menuMobile">
+            <div className="header__menuMobile" onClick={handleMenuToggle}>
               <span>
                 <IoMdMenu className="header__menuMoblie-icon" />
               </span>
@@ -87,6 +66,7 @@ const Header = ({ isMenuOpen, setIsMenuOpen }: any) => {
               </div>
             </div>
           </div>
+
           <div className="header__center">
             {/* form tìm kiếm online */}
             <div className="header__inputSeach">
@@ -102,288 +82,62 @@ const Header = ({ isMenuOpen, setIsMenuOpen }: any) => {
               </form>
             </div>
             {/* end form tìm kiếm online */}
-            {/*start nav deskop */}
-            <div className="header__nav">
-              <div className="header__nav-item">
-                <div className="header__nav-item_name">
-                  <img src={image_laptop} alt="" />
-                  <p>Sửa chữa laptop</p>
-                </div>
-                <div className="item__subMenu">
-                  <div className="item__subMenu-one">
-                    <h2>Sửa Main - Nguồn - Wifi</h2>
-                    <ul>
-                      <li>
-                        <a href="#">Dịch vụ bo chủ cho laptop</a>
-                      </li>
-                      <li>
-                        <a href="#">Thay bàn phím laptop</a>
-                      </li>
-                      <li>
-                        <a href="#">Dịch vụ bo chủ cho laptop</a>
-                      </li>
-                      <li>
-                        <a href="#">Thay bàn phím laptop</a>
-                      </li>
-                    </ul>
-                  </div>{" "}
-                  <div className="item__subMenu-one">
-                    <ul>
-                      <h2>Sửa Main - Nguồn - Wifi</h2>
-                      <li>
-                        <a href="#">Dịch vụ bo chủ cho laptop</a>
-                      </li>
-                      <li>
-                        <a href="#">Thay bàn phím laptop</a>
-                      </li>
-                      <li>
-                        <a href="#">Dịch vụ bo chủ cho laptop</a>
-                      </li>
-                      <li>
-                        <a href="#">Thay bàn phím laptop</a>
-                      </li>
-                    </ul>
-                  </div>{" "}
-                  <div className="item__subMenu-one">
-                    <ul>
-                      <h2>Sửa Main - Nguồn - Wifi</h2>
-                      <li>
-                        <a href="#">Dịch vụ bo chủ cho laptop</a>
-                      </li>
-                      <li>
-                        <a href="#">Thay bàn phím laptop</a>
-                      </li>
-                      <li>
-                        <a href="#">Dịch vụ bo chủ cho laptop</a>
-                      </li>
-                      <li>
-                        <a href="#">Thay bàn phím laptop</a>
-                      </li>
-                    </ul>
+
+            {/*Start nav deskop */}
+            <div
+              className={`header__nav ${isMenuMobileOpen == true ? "show" : "hide"}`}
+            >
+              {navItems.map((item, index) => (
+                <div className="header__nav-item" key={index}>
+                  <div className="header__nav-item_name">
+                    <img src={item.imageSrc} alt={item.text} />
+                    <p>{item.text}</p>
                   </div>
-                  <div className="item__subMenu-image">
-                    <img src={nav_image_shadow} alt="" />
-                  </div>
+                  {item.subMenu && (
+                    <div className="item__subMenu">
+                      {item.subMenu.map((subItem, subIndex) => (
+                        <div className="item__subMenu-one" key={subIndex}>
+                          <h2>{subItem.title}</h2>
+                          <ul>
+                            {subItem.links.map((link, linkIndex) => (
+                              <li key={linkIndex}>
+                                <a href={link.href}>{link.text}</a>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                      <div className="item__subMenu-image">
+                        <img src={nav_image_shadow} alt="Submenu Shadow" />
+                      </div>
+                    </div>
+                  )}
                 </div>
-              </div>
-              <div className="header__nav-item">
-                <div className="header__nav-item_name">
-                  <img src={image_laptop} alt="" />
-                  <p>Sửa chữa laptop</p>
-                </div>
-                <div className="item__subMenu">
-                  <div className="item__subMenu-one">
-                    <h2>Sửa Main - Nguồn - Wifi</h2>
-                    <ul>
-                      <li>
-                        <a href="#">Dịch vụ bo chủ cho laptop</a>
-                      </li>
-                      <li>
-                        <a href="#">Thay bàn phím laptop</a>
-                      </li>
-                      <li>
-                        <a href="#">Dịch vụ bo chủ cho laptop</a>
-                      </li>
-                      <li>
-                        <a href="#">Thay bàn phím laptop</a>
-                      </li>
-                    </ul>
-                  </div>{" "}
-                  <div className="item__subMenu-one">
-                    <ul>
-                      <h2>Sửa Main - Nguồn - Wifi</h2>
-                      <li>
-                        <a href="#">Dịch vụ bo chủ cho laptop</a>
-                      </li>
-                      <li>
-                        <a href="#">Thay bàn phím laptop</a>
-                      </li>
-                      <li>
-                        <a href="#">Dịch vụ bo chủ cho laptop</a>
-                      </li>
-                      <li>
-                        <a href="#">Thay bàn phím laptop</a>
-                      </li>
-                    </ul>
-                  </div>{" "}
-                  <div className="item__subMenu-one">
-                    <ul>
-                      <h2>Sửa Main - Nguồn - Wifi</h2>
-                      <li>
-                        <a href="#">Dịch vụ bo chủ cho laptop</a>
-                      </li>
-                      <li>
-                        <a href="#">Thay bàn phím laptop</a>
-                      </li>
-                      <li>
-                        <a href="#">Dịch vụ bo chủ cho laptop</a>
-                      </li>
-                      <li>
-                        <a href="#">Thay bàn phím laptop</a>
-                      </li>
-                    </ul>
-                  </div>
-                  <div className="item__subMenu-image">
-                    <img src={nav_image_shadow} alt="" />
-                  </div>
-                </div>
-              </div>
-              <div className="header__nav-item">
-                <div className="header__nav-item_name">
-                  <img src={image_laptop} alt="" />
-                  <p>Sửa chữa laptop</p>
-                </div>
-                <div className="item__subMenu">
-                  <div className="item__subMenu-one">
-                    <h2>Sửa Main - Nguồn - Wifi</h2>
-                    <ul>
-                      <li>
-                        <a href="#">Dịch vụ bo chủ cho laptop</a>
-                      </li>
-                      <li>
-                        <a href="#">Thay bàn phím laptop</a>
-                      </li>
-                      <li>
-                        <a href="#">Dịch vụ bo chủ cho laptop</a>
-                      </li>
-                      <li>
-                        <a href="#">Thay bàn phím laptop</a>
-                      </li>
-                    </ul>
-                  </div>{" "}
-                  <div className="item__subMenu-one">
-                    <ul>
-                      <h2>Sửa Main - Nguồn - Wifi</h2>
-                      <li>
-                        <a href="#">Dịch vụ bo chủ cho laptop</a>
-                      </li>
-                      <li>
-                        <a href="#">Thay bàn phím laptop</a>
-                      </li>
-                      <li>
-                        <a href="#">Dịch vụ bo chủ cho laptop</a>
-                      </li>
-                      <li>
-                        <a href="#">Thay bàn phím laptop</a>
-                      </li>
-                    </ul>
-                  </div>{" "}
-                  <div className="item__subMenu-one">
-                    <ul>
-                      <h2>Sửa Main - Nguồn - Wifi</h2>
-                      <li>
-                        <a href="#">Dịch vụ bo chủ cho laptop</a>
-                      </li>
-                      <li>
-                        <a href="#">Thay bàn phím laptop</a>
-                      </li>
-                      <li>
-                        <a href="#">Dịch vụ bo chủ cho laptop</a>
-                      </li>
-                      <li>
-                        <a href="#">Thay bàn phím laptop</a>
-                      </li>
-                    </ul>
-                  </div>
-                  <div className="item__subMenu-image">
-                    <img src={nav_image_shadow} alt="" />
-                  </div>
-                </div>
-              </div>
-              <div className="header__nav-item">
-                <div className="header__nav-item_name">
-                  <img src={image_laptop} alt="" />
-                  <p>Sửa chữa laptop</p>
-                </div>
-              </div>
-              <div className="header__nav-item">
-                <div className="header__nav-item_name">
-                  <img src={image_laptop} alt="" />
-                  <p>Sửa chữa laptop</p>
-                </div>
-              </div>
-              <div className="header__nav-item">
-                <div className="header__nav-item_name">
-                  <img src={image_laptop} alt="" />
-                  <p>Sửa chữa laptop</p>
-                </div>
-              </div>
-              <div className="header__nav-item">
-                <div className="header__nav-item_name">
-                  <img src={image_laptop} alt="" />
-                  <p>Sửa chữa laptop</p>
-                </div>
-              </div>
-              <div className="header__nav-item">
-                <div className="header__nav-item_name">
-                  <img src={image_laptop} alt="" />
-                  <p>Sửa chữa laptop</p>
-                </div>
-              </div>
-            </div>
-            {/* <div className="header__nav">
-              {menuItems.map((menu, index) => (
-                <NavItem
-                  key={index}
-                  imageSrc={image_laptop}
-                  text="Sửa chữa laptop"
-                  submenu={[menu]} // Pass submenu data here
-                  imageBottomSrc={nav_image_shadow}
-                />
               ))}
-            </div> */}
+            </div>
+            {/*End nav deskop */}
+            {/* subMenuMobile */}
+            <div
+              className={`sub__menu_mobile ${isMenuMobileOpen == true ? "show" : "hide"}`}
+            >
+              <h3>Sửa chữa Laptop</h3>
+              <button>Sửa Main Laptop</button>
+              <button>Sửa Main Laptop</button>
+              <button>Sửa Main Laptop</button>
+              <button>Sửa Main Laptop</button>
+            </div>
+            {/* endsubMobile */}
           </div>
-          {/*END nav deskop */}
+
+          {/* StartHeader Bootom */}
           <div className="header__bottom">
             <div className="header__bottom-item current-page">
               <IoHomeOutline />
               <p className="text-[12px]">Thay bàn phím laptop</p>
             </div>
           </div>
+          {/* EndHeaderBootom */}
         </div>
-        {/* MenuMobile */}
-        {/* <div className="header__nav-mobile">
-          <div className="header__nav-mobile_left">
-            <div className="header__nav-mobile">
-              <div className="header__nav-item">
-                <div className="header__nav-item_name">
-                  <img src={image_laptop} alt="" />
-                  <p>Sửa chữa laptop</p>
-                </div>
-              </div>
-              <div className="header__nav-item">
-                <div className="header__nav-item_name">
-                  <img src={image_laptop} alt="" />
-                  <p>Sửa chữa laptop</p>
-                </div>
-              </div>
-              <div className="header__nav-item">
-                <div className="header__nav-item_name">
-                  <img src={image_laptop} alt="" />
-                  <p>Sửa chữa laptop</p>
-                </div>
-              </div>
-              <div className="header__nav-item">
-                <div className="header__nav-item_name">
-                  <img src={image_laptop} alt="" />
-                  <p>Sửa chữa laptop</p>
-                </div>
-              </div>
-              <div className="header__nav-item">
-                <div className="header__nav-item_name">
-                  <img src={image_laptop} alt="" />
-                  <p>Sửa chữa laptop</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="header__nav-mobile_right">
-            <h2>fjifjeisf</h2>
-          </div>
-        </div> */}
-        {/* END MenuMobile */}
-
-        {/* MenuMoblie */}
       </header>
       {/* Overlay background */}
       {isMenuOpen && <div className="overlay" onClick={toggleMenu}></div>}
