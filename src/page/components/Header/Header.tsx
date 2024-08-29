@@ -1,10 +1,10 @@
-import { image_laptop, logo, nav_image_shadow } from "@/assets/img";
-import { IoMdMenu } from "react-icons/io";
-import { FaShoppingCart } from "react-icons/fa";
-import { FaUser } from "react-icons/fa";
-import { CiSearch } from "react-icons/ci";
-import { IoHomeOutline } from "react-icons/io5";
+import { logo, nav_image_shadow } from "@/assets/img";
+import "@/styles/Header.scss";
 import { useState } from "react";
+import { CiSearch } from "react-icons/ci";
+import { FaShoppingCart, FaUser } from "react-icons/fa";
+import { IoMdMenu } from "react-icons/io";
+import { IoHomeOutline } from "react-icons/io5";
 import { navItems } from "./_components/DataNavItem";
 
 const Header = () => {
@@ -17,7 +17,7 @@ const Header = () => {
   const handleMenuToggle = () => {
     setIsMenuMobileOpen(!isMenuMobileOpen);
   };
-  console.log("isMenuMobileOpen", isMenuMobileOpen);
+  // console.log("isMenuMobileOpen", isMenuMobileOpen);
   return (
     <>
       <header className="">
