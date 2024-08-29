@@ -5,6 +5,7 @@ import { LuBadgeInfo } from "react-icons/lu";
 import { MdArticle } from "react-icons/md";
 import { FaRegUserCircle } from "react-icons/fa";
 import { iamgeCpu } from "@/assets/img";
+import "./ProductDetail_Info.scss";
 type Props = {};
 
 const ProductDetail_Info = (props: Props) => {

@@ -1,0 +1,53 @@
+// Rating Product
+.rating-container {
+  width: 100%;
+  padding: 10px;
+  border-radius: 0.325rem;
+  box-shadow:
+    0 1px 4px rgba(0, 0, 0, 0.16),
+    0 1px 4px rgba(0, 0, 0, 0.16);
+  margin-top: 10px;
+  margin-bottom: 40px;
+  .rating-header {
+    p {
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 24px;
+      letter-spacing: 0;
+      text-align: left;
+      color: #1f2123;
+    }
+  }
+  .rating-divider {
+    border-top: 2px solid rgb(222, 226, 230);
+    margin: 12px 0;
+  }
+}
+.rating-summary {
+  width: 100%;
+  &-average {
+    width: 30%;
+    text-align: center;
+    .rating-average-score {
+      color: rgb(250, 176, 5);
+      font-size: 18px;
+      font-weight: 700;
+    }
+    .average-icon {
+      margin: 0 auto;
+      font-size: 16px;
+    }
+  }
+}
+.rating-summary-breakdown {
+  display: flex;
+  flex-wrap: wrap;
+  &-item {
+    padding: 5px 20px;
+    margin: 5px;
+    border: 1px solid rgb(229, 231, 235);
+    border-radius: 0.325rem;
+    align-items: center;
+    gap: 0.35rem !important;
+  }
+}

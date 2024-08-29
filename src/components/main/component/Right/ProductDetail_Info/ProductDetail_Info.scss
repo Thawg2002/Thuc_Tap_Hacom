@@ -1,0 +1,235 @@
+@import "../../../../../styles/variables.scss";
+.product-detail__warranty {
+  display: flex;
+  .icon {
+    height: auto;
+    width: 24px;
+    margin-right: 5px;
+    color: #43ae4f;
+  }
+  p {
+    color: #43ae4f;
+    font-weight: 600;
+  }
+}
+.product-detail__pricing {
+  .product-detail__title {
+    font-size: 14px;
+    font-weight: 650;
+    margin: 5px 0;
+  }
+  .product-detail__prices {
+    margin: 8px 0;
+    display: flex;
+    gap: 10px;
+    .product-detail__price {
+      font-size: 1.125rem;
+      line-height: 1.75rem;
+      font-weight: 700;
+      color: $primary-color;
+    }
+    .product-detail__price-old {
+      font-size: 0.825rem !important;
+      line-height: 1.75rem;
+      font-weight: 500;
+      color: #a5a5a5;
+      text-decoration: line-through;
+    }
+    .product-detail__discount {
+      font-size: 0.825rem !important;
+      line-height: 1.75rem;
+      color: #a5a5a5;
+    }
+  }
+}
+.product-detail__action-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+.product-detail__action-button--purchase,
+.product-detail__schedule-booking {
+  width: calc(100% - 70px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.325rem;
+  border: 1px solid $primary-color;
+  background-color: #fff;
+  text-align: center;
+  height: 60px;
+  color: $primary-color;
+  cursor: pointer;
+}
+
+.product-detail__action-button--purchase,
+.product-detail__schedule-booking span {
+  font-size: 14px;
+  display: block;
+  line-height: 1.25rem;
+  font-weight: 700;
+}
+
+.product-detail__action-button--purchase,
+.product-detail__schedule-booking p {
+  font-size: 0.825em;
+  margin: 0;
+}
+
+.product-detail__action-button--cart {
+  width: 60px;
+  display: flex;
+  height: 60px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border: 1px solid #f72429;
+  background-color: #fff;
+  border-radius: 0.325rem;
+  cursor: pointer;
+  .icon_cart {
+    font-size: 18px;
+    color: $primary-color;
+    font-weight: 700;
+  }
+}
+
+.product-detail__action-button--cart span {
+  font-size: 7px;
+  display: block;
+  font-weight: 700;
+  color: $primary-color;
+}
+.product-detail__schedule-booking {
+  width: 100%;
+  margin: 5px 0;
+  background-color: $primary-color;
+  color: #fff;
+}
+.product-detail__info {
+  border: 1px solid #a3a3a3;
+  border-radius: 0.325rem;
+  margin-top: 12px;
+  &-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 10px;
+    background-color: #a3a3a3;
+    color: #fff;
+    &-icon {
+      width: 24px;
+      height: 24px;
+    }
+    &-title {
+      font-size: 15px;
+      font-weight: 700;
+    }
+  }
+  &-content {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 799px) {
+  .product-detail {
+    .product-detail__right {
+      display: none;
+    }
+    .mantine-Grid-root {
+      width: 100vw; // Chiếm toàn bộ chiều rộng màn hình
+      margin: 0; // Loại bỏ margin mặc định
+      padding: 0; // Loại bỏ padding mặc định
+    }
+
+    .mantine-Grid-inner {
+      width: 100%;
+      margin: 0; // Loại bỏ margin bên trong grid
+      padding: 0; // Loại bỏ padding bên trong grid
+    }
+
+    .mantine-Grid-col {
+      width: 100%; // Đảm bảo các cột chiếm toàn bộ chiều rộng cột chứa chúng
+    }
+    .product-detail__left {
+      max-width: 100%;
+    }
+  }
+}
+.show_Product-info {
+  display: none;
+  @media (max-width: 799px) {
+    display: block;
+    margin-top: 10px;
+  }
+}
+// Product-Info-article-meta
+.product__article {
+  margin-top: 20px;
+  border-radius: 12px;
+  padding: 10px;
+  border: 1px solid hsla(0, 0%, 94%, 0.769);
+  box-shadow:
+    0 1px 2px 0 rgba(60, 64, 67, 0.1),
+    0 2px 6px 2px rgba(60, 64, 67, 0.15);
+  margin-bottom: 20px;
+  &-header {
+    display: flex;
+    align-items: center;
+    .product__article-icon {
+      width: 24px;
+      height: 24px;
+      color: #f72429;
+      margin-right: 5px;
+    }
+    p {
+      font-weight: 600;
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+    }
+  }
+  @media (max-width: 799px) {
+    display: none;
+  }
+}
+.product__article-list {
+  margin-top: 20px;
+}
+.product__article-item {
+  display: flex;
+  .product__article-info {
+    width: auto;
+    padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .product__article-description {
+      height: 40px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      p {
+        font-weight: 700;
+        font-size: 14px;
+
+        // white-space: nowrap; /* Không cho phép xuống dòng */
+      }
+    }
+    .product__article-meta {
+      display: flex;
+      gap: 10px;
+      justify-content: flex-end;
+      align-items: center;
+      font-size: 12px;
+    }
+  }
+}
+.product__article-image-container .product__article-image-wrapper {
+  width: 200px;
+  margin-right: 10px;
+  img {
+    border-radius: 0.325rem;
+  }
+}

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import Slider from "react-slick";
-
+import "./SliderProduct.scss";
 import { imagePin1, imagePin2, imagePin4 } from "@/assets/img";
 function SliderProduct() {
   // const [nav1, setNav1] = useState(null);

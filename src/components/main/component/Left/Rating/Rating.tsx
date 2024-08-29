@@ -1,4 +1,5 @@
 import { Box, Button, Flex, Progress, Rating } from "@mantine/core";
+import "./Rating.scss";
 const RatingProductDetail = () => {
   return (
     <div className="rating-container">
@@ -10,33 +11,31 @@ const RatingProductDetail = () => {
 
           <div className="rating-divider">{/* thanh ngang */}</div>
 
-          <div >
-            <Flex className="rating-summary">
-              <div className="rating-summary-average">
-                <p className="rating-average-score">4.6/5</p>
-                <Rating defaultValue={5} size="md" className="average-icon" />
-              </div>
+          <Flex className="rating-summary">
+            <div className="rating-summary-average">
+              <p className="rating-average-score">4.6/5</p>
+              <Rating defaultValue={5} size="md" className="average-icon" />
+            </div>
 
-              <Flex direction="row" className="rating-summary-breakdown">
-                <div className="rating-summary-breakdown-item">Tất cả</div>
-                <Flex direction="row" className="rating-summary-breakdown-item">
-                  5 <Rating defaultValue={2} size="sm" count={1} />
-                </Flex>
-                <Flex direction="row" className="rating-summary-breakdown-item">
-                  5 <Rating defaultValue={2} size="sm" count={1} />
-                </Flex>
-                <Flex direction="row" className="rating-summary-breakdown-item">
-                  5 <Rating defaultValue={2} size="sm" count={1} />
-                </Flex>
-                <Flex direction="row" className="rating-summary-breakdown-item">
-                  5 <Rating defaultValue={2} size="sm" count={1} />
-                </Flex>
-                <Flex direction="row" className="rating-summary-breakdown-item">
-                  5 <Rating defaultValue={2} size="sm" count={1} />
-                </Flex>
+            <Flex direction="row" className="rating-summary-breakdown">
+              <div className="rating-summary-breakdown-item">Tất cả</div>
+              <Flex direction="row" className="rating-summary-breakdown-item">
+                5 <Rating defaultValue={2} size="sm" count={1} />
+              </Flex>
+              <Flex direction="row" className="rating-summary-breakdown-item">
+                5 <Rating defaultValue={2} size="sm" count={1} />
+              </Flex>
+              <Flex direction="row" className="rating-summary-breakdown-item">
+                5 <Rating defaultValue={2} size="sm" count={1} />
+              </Flex>
+              <Flex direction="row" className="rating-summary-breakdown-item">
+                5 <Rating defaultValue={2} size="sm" count={1} />
+              </Flex>
+              <Flex direction="row" className="rating-summary-breakdown-item">
+                5 <Rating defaultValue={2} size="sm" count={1} />
               </Flex>
             </Flex>
-          </div>
+          </Flex>
 
           <div className="rating-divider">{/* thanh ngang */}</div>
 

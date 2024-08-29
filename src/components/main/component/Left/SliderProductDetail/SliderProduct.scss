@@ -1,0 +1,62 @@
+@import "../../../../../styles/variables.scss";
+// Css Slider-Product-Detail
+.sliderProduct__detail {
+  height: 332px;
+  border-radius: 0.325rem;
+  box-shadow:
+    0 1px 4px rgba(0, 0, 0, 0.16),
+    0 1px 4px rgba(0, 0, 0, 0.16);
+  &-image {
+    img {
+      margin: 0 auto;
+      height: auto;
+      object-fit: contain;
+      width: 332px;
+    }
+  }
+}
+
+.slider-container {
+  .image_second {
+    /* Container của slider nhỏ */
+    margin-top: 20px;
+    margin: 0 auto;
+    width: 400px;
+    .sliderProduct__detail-image_second {
+      /* Phần tử chứa ảnh nhỏ */
+      padding: 0 10px; // Padding cho mỗi ảnh
+      /* Căn giữa nội dung */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+      img {
+        width: 120px; // Đảm bảo ảnh nhỏ chiếm toàn bộ width của phần tử chứa
+        height: auto; // Giữ tỷ lệ của ảnh
+        border: 2px solid transparent;
+        transition: border 0.3s ease;
+      }
+    }
+
+    /* Căn giữa toàn bộ slider nhỏ */
+    .slick-slide {
+      display: flex;
+      justify-content: center; // Căn giữa slide
+      align-items: center;
+      box-sizing: border-box;
+    }
+
+    .slick-track {
+      display: flex; // Để các slide nằm trên một hàng
+    }
+    .slick-slide.slick-active.slick-current
+      .sliderProduct__detail-image_second
+      img {
+      border: 1px solid $primary-color; // Thay đổi màu viền của ảnh được chọn
+      border-radius: 0.325rem;
+    }
+    .slick-list {
+      margin-top: 10px;
+    }
+  }
+}

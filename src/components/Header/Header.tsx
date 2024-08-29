@@ -1,12 +1,11 @@
 import { logo, nav_image_shadow } from "@/assets/img";
-import "@/styles/Header.scss";
 import { useState } from "react";
 import { CiSearch } from "react-icons/ci";
 import { FaShoppingCart, FaUser } from "react-icons/fa";
 import { IoMdMenu } from "react-icons/io";
 import { IoHomeOutline } from "react-icons/io5";
-import { navItems } from "./_components/DataNavItem";
-
+import { navItems } from "./component/DataNavItem";
+import "./Header.scss";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMenuMobileOpen, setIsMenuMobileOpen] = useState(false);

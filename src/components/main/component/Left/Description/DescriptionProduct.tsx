@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import "./DescriptionProduct.scss";
 const DescriptionProduct = () => {
   const [isExpanded, setIsExpanded] = useState(false);
 

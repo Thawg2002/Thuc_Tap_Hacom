@@ -1,0 +1,37 @@
+@import "../../../../../styles/variables.scss";
+//Descritpion Product
+.description-container {
+  position: relative;
+  width: 100%;
+  min-height: 300px;
+  padding: 10px;
+  border-radius: 0.325rem;
+  box-shadow:
+    0 1px 4px rgba(0, 0, 0, 0.16),
+    0 1px 4px rgba(0, 0, 0, 0.16);
+}
+
+.description-title {
+  font-size: 1.25em;
+  margin-bottom: 10px;
+}
+
+.description-content {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: max-height 0.3s ease; /* Hiệu ứng chuyển đổi khi mở rộng */
+  max-height: 1.2em; /* Chiều cao tối đa khi bị cắt */
+}
+
+.description-content.expanded {
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+  max-height: none; /* Không giới hạn chiều cao khi mở rộng */
+}
+
+.toggle-button {
+  display: block;
+  margin-top: 10px;
+}

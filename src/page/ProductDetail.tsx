@@ -1,9 +1,10 @@
 import { Grid, Input } from "@mantine/core";
-import Header from "./components/Header/Header";
-import DescriptionProduct from "./components/main/_component/DescriptionProduct";
-import RatingProductDetail from "./components/main/_component/Rating";
-import SliderProduct from "./components/main/_component/SliderProduct";
-import ProductDetail_Info from "./components/ProductDetail_Info";
+import Header from "../components/Header/Header";
+import DescriptionProduct from "../components/main/component/Left/Description/DescriptionProduct";
+import RatingProductDetail from "../components/main/component/Left/Rating/Rating";
+import SliderProduct from "../components/main/component/Left/SliderProductDetail/SliderProduct";
+import ProductDetail_Info from "../components/main/component/Right/ProductDetail_Info/ProductDetail_Info";
+import TittleName from "@/components/main/component/Left/TitleName/TittleName";
 const ProductDetail = () => {
   return (
     <>
@@ -15,15 +16,7 @@ const ProductDetail = () => {
             {/* Start main left */}
             <Grid.Col span={7.5} className="product-detail__left">
               <div className="product-detail__name">
-                <div className="product-detail__title">
-                  <h1 className="product-detail__title-text">
-                    Pin BISON thay thế cho iPhone 5S - Dung lượng tiêu chuẩn
-                    (Chưa gồm công thay)
-                    <span className="product-detail__code">
-                      Mã sản phẩm: PIND832
-                    </span>
-                  </h1>
-                </div>
+                <TittleName />
                 <SliderProduct />
               </div>
               <div className="show_Product-info">
@@ -62,7 +55,6 @@ const ProductDetail = () => {
         </div>
       </main>
       <div className="h-[1000px]">
-        {" "}
         <Input placeholder="Input component" className="inputtext" />
       </div>
     </>
