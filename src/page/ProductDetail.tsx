@@ -5,6 +5,8 @@ import RatingProductDetail from "../components/main/component/Left/Rating/Rating
 import SliderProduct from "../components/main/component/Left/SliderProductDetail/SliderProduct";
 import ProductDetail_Info from "../components/main/component/Right/ProductDetail_Info/ProductDetail_Info";
 import TittleName from "@/components/main/component/Left/TitleName/TittleName";
+import Comment from "@/components/main/component/Left/Comment/Comment";
+import ProductList from "@/components/main/component/Left/ProductList/ProductList";
 const ProductDetail = () => {
   return (
     <>
@@ -22,6 +24,9 @@ const ProductDetail = () => {
               <div className="show_Product-info">
                 <ProductDetail_Info />
               </div>
+              <div className="show_Product-list-moblie">
+                <ProductList />
+              </div>
               {/* Start Description */}
               <div>
                 <DescriptionProduct />
@@ -34,10 +39,12 @@ const ProductDetail = () => {
               </div>
               {/* End Rating */}
 
-              <div className="product-detail__section">
-                <h3 className="product-detail__section-title">Comment</h3>
+              {/*Start Comment  */}
+              <Comment />
+              {/* End Comment */}
+              <div className="show_Product-list">
+                <ProductList />
               </div>
-              <div>ProductList</div>
             </Grid.Col>
             {/* End main left */}
 
@@ -54,9 +61,7 @@ const ProductDetail = () => {
           </Grid>
         </div>
       </main>
-      <div className="h-[1000px]">
-        <Input placeholder="Input component" className="inputtext" />
-      </div>
+      <div className="h-[1000px]">sfse</div>
     </>
   );
 };

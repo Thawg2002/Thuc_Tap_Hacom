@@ -223,6 +223,13 @@
       justify-content: flex-end;
       align-items: center;
       font-size: 12px;
+      .product__article-date {
+        height: 19px;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+      }
     }
   }
 }

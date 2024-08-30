@@ -5,6 +5,7 @@ import imagePin1 from "@/assets/img/imagePin1.jpg";
 import imagePin2 from "@/assets/img/imagePin2.jpg";
 import imagePin4 from "@/assets/img/imagePin4.jpg";
 import iamgeCpu from "@/assets/img/imageCpu.jpg";
+import banphimlaptop from "@/assets/img/banphimLaptop.jpg";
 export {
   logo,
   image_laptop,
@@ -13,4 +14,5 @@ export {
   imagePin2,
   imagePin4,
   iamgeCpu,
+  banphimlaptop,
 };
