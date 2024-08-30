@@ -85,23 +85,23 @@
   align-items: center;
   justify-content: center;
   padding: 10px;
-  border: 1px solid #f72429;
+  border: 1px solid $primary-color;
   background-color: #fff;
   border-radius: 0.325rem;
   cursor: pointer;
   .icon_cart {
     font-size: 18px;
     color: $primary-color;
-    font-weight: 700;
+    font-weight: 800;
+  }
+  span {
+    font-size: 7px;
+    display: block;
+    font-weight: 800;
+    color: $primary-color;
   }
 }
 
-.product-detail__action-button--cart span {
-  font-size: 7px;
-  display: block;
-  font-weight: 700;
-  color: $primary-color;
-}
 .product-detail__schedule-booking {
   width: 100%;
   margin: 5px 0;
@@ -181,7 +181,7 @@
     .product__article-icon {
       width: 24px;
       height: 24px;
-      color: #f72429;
+      color: $primary-color;
       margin-right: 5px;
     }
     p {

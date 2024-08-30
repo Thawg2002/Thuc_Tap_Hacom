@@ -6,6 +6,8 @@ import imagePin2 from "@/assets/img/imagePin2.jpg";
 import imagePin4 from "@/assets/img/imagePin4.jpg";
 import iamgeCpu from "@/assets/img/imageCpu.jpg";
 import banphimlaptop from "@/assets/img/banphimLaptop.jpg";
+import image_dropdown_InputSeach from "@/assets/img/image_dropdown_InputSeach.png";
+import image_dropdown_InputSeach2 from "@/assets/img/image_dropdown_InputSeach2.png";
 export {
   logo,
   image_laptop,
@@ -15,4 +17,6 @@ export {
   imagePin4,
   iamgeCpu,
   banphimlaptop,
+  image_dropdown_InputSeach,
+  image_dropdown_InputSeach2,
 };

@@ -12,7 +12,7 @@ const ProductDetail = () => {
     <>
       <Header />
       <div className="h-[20px]"></div>
-      <main className="">
+      <main className="pt-[10px]">
         <div className="container">
           <Grid columns={12} className="product-detail">
             {/* Start main left */}

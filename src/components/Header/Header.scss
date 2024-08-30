@@ -20,7 +20,9 @@ header {
   backdrop-filter: blur(1px); /* Làm mờ phần tử phía sau overlay */
   z-index: 40; /* Đảm bảo lớp phủ nằm trên nội dung */
 }
-
+.header_bottom_orverlay {
+  position: absolute;
+}
 // header-top
 .header__top {
   display: flex;
@@ -400,4 +402,67 @@ header {
   @media (max-width: 799px) {
     display: none;
   }
+}
+
+//  header__cart-dropdown
+
+.header__cart-dropdown {
+  z-index: 1000 !important;
+  padding: 20px 10px !important;
+
+  &-main {
+    padding: 0 !important;
+
+    .header__cart-dropdown-top {
+      text-align: center;
+      p {
+        font-weight: 500;
+        font-size: 18px;
+      }
+    }
+    .header__cart-dropdown-center {
+      align-items: center;
+      margin-top: 5px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid #e5e5e5;
+      .header__cart-dropdown-icon {
+        font-size: 70px;
+        color: #000;
+      }
+      .header__cart-dropdown-message {
+        margin-top: 5px;
+        p {
+          font-size: 16px;
+          font-weight: 600;
+        }
+      }
+    }
+    .header__cart-dropdown-bottom {
+      gap: 10px;
+      .header__cart-dropdown-summary {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+        p {
+          font-size: 16px;
+          font-weight: 500;
+        }
+      }
+      .header__cart-dropdown-actions {
+        font-size: 13px;
+        justify-content: space-between;
+      }
+    }
+  }
+}
+@media (max-width: 599px) {
+  .header__cart-dropdown {
+    position: absolute;
+    width: 100% !important;
+  }
+}
+
+// header__inputSeach__dropdown
+.header__search-dropdown{
+  z-index: 1000 !important;
 }
