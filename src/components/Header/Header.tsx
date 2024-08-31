@@ -1,29 +1,42 @@
 import {
-  image_dropdown_InputSeach,
-  image_dropdown_InputSeach2,
   logo,
-  nav_image_shadow,
+  nav_image_shadow
 } from "@/assets/img";
 import { useState } from "react";
-import { CiSearch } from "react-icons/ci";
-import { FaShoppingCart, FaUser } from "react-icons/fa";
+import { FaUser } from "react-icons/fa";
 import { IoMdMenu } from "react-icons/io";
 import { IoHomeOutline } from "react-icons/io5";
-import { navItems } from "./component/DataNavItem";
-import { Popover, Text, Button, TextInput, Flex, Grid } from "@mantine/core";
-import { IoCartOutline } from "react-icons/io5";
 import "./Header.scss";
+import ButtonCart from "./component/ButtonCart/ButtonCart";
+import { navItems } from "./component/DataNavItem";
+import { submenuMobile } from "./component/DataSubMenuMobile";
+import InputSeach from "./component/InputSeach/InputSeach";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMenuMobileOpen, setIsMenuMobileOpen] = useState(false);
-
+  const [isPopoverOpen, setIsPopoverOpen] = useState(false);
+  const [dataSubMenuMobile, setDataSubMenuMobile] = useState<any>(null);
+  const [activeIndex, setActiveIndex] = useState(null);
+  const handlePopoverChange = (isOpen: boolean) => {
+    setIsPopoverOpen(isOpen);
+  };
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
   const handleMenuToggle = () => {
     setIsMenuMobileOpen(!isMenuMobileOpen);
   };
+  const onhandleNavItemName = (name: string,index:any) => {
+    // console.log("name", name);
+    const dataNewSubMenuMoblie = submenuMobile.find(
+      (item) => item.title === name
+    );
+    setDataSubMenuMobile(dataNewSubMenuMoblie);
+    setActiveIndex(index);
+    // console.log("dataNewSubMenuMoblie", dataNewSubMenuMoblie);
+  };
   // console.log("isMenuMobileOpen", isMenuMobileOpen);
+  // console.log("dataSubMenuMobile", dataSubMenuMobile);
   return (
     <>
       <header className={`${isMenuOpen ? "mb-[30px]" : ""}`}>
@@ -39,160 +52,15 @@ const Header = () => {
             </div>
             <div className="header_actions">
               {/* danh mục */}
-              <div className="header__menu">
+              <div className="header__menu" onClick={toggleMenu}>
                 <IoMdMenu className="header__menu-icon" />
-                <button className="header__menu-button" onClick={toggleMenu}>
-                  Danh mục
-                </button>
+                <button className="header__menu-button">Danh mục</button>
               </div>
               {/* form seach */}
-              <Popover
-                width={300}
-                trapFocus
-                position="bottom"
-                withArrow
-                shadow="md"
-              >
-                <Popover.Target>
-                  <form action="" className="header__search-form">
-                    <input
-                      type="text"
-                      placeholder="Nhập tên sản phẩm, từ khóa cần tìm"
-                      className="header__search-input"
-                    />
-                    <button className="header__search-button">
-                      <CiSearch className="icon__confirm" />
-                    </button>
-                  </form>
-                </Popover.Target>
-                <Popover.Dropdown className="header__search-dropdown">
-                  <div className="header__search-dropdown-main">
-                    <div className="header__search-dropdown-image">
-                      <img
-                        src={image_dropdown_InputSeach}
-                        alt="Xu hướng tìm kiếm"
-                      />
-                    </div>
-                    <div className="header__search-dropdown-title">
-                      <p>Xu hướng tìm kiếm</p>
-                    </div>
-                    <div className="header__search-dropdown-content">
-                      <Grid columns={2}>
-                        <Flex
-                          direction="row"
-                          className="header__search-dropdown-item"
-                        >
-                          <img
-                            src={image_dropdown_InputSeach2}
-                            alt="Sửa màn hình"
-                          />
-                          <div className="header__search-dropdown-text">
-                            <p>Sửa màn hình</p>
-                          </div>
-                        </Flex>
-                        <Flex
-                          direction="row"
-                          className="header__search-dropdown-item"
-                        >
-                          <img
-                            src={image_dropdown_InputSeach2}
-                            alt="Sửa màn hình"
-                          />
-                          <div className="header__search-dropdown-text">
-                            <p>Sửa màn hình</p>
-                          </div>
-                        </Flex>
-                        <Flex
-                          direction="row"
-                          className="header__search-dropdown-item"
-                        >
-                          <img
-                            src={image_dropdown_InputSeach2}
-                            alt="Sửa màn hình"
-                          />
-                          <div className="header__search-dropdown-text">
-                            <p>Sửa màn hình</p>
-                          </div>
-                        </Flex>
-                        <Flex
-                          direction="row"
-                          className="header__search-dropdown-item"
-                        >
-                          <img
-                            src={image_dropdown_InputSeach2}
-                            alt="Sửa màn hình"
-                          />
-                          <div className="header__search-dropdown-text">
-                            <p>Sửa màn hình</p>
-                          </div>
-                        </Flex>
-                      </Grid>
-                    </div>
-                  </div>
-                </Popover.Dropdown>
-              </Popover>
+              <InputSeach onPopoverChange={handlePopoverChange} />
 
               {/* button-giỏ hàng */}
-              <Popover
-                width={327}
-                trapFocus
-                position="bottom"
-                withArrow
-                shadow="md"
-              >
-                <Popover.Target>
-                  <div className="header__cart">
-                    <span>
-                      <FaShoppingCart className="header__cart-icon" />
-                    </span>
-                    <button className="header__cart-button">Giỏ hàng</button>
-                  </div>
-                </Popover.Target>
-                <Popover.Dropdown className="header__cart-dropdown">
-                  <div className="header__cart-dropdown-main">
-                    {/* top */}
-                    <div className="header__cart-dropdown-top">
-                      <p>Giỏ hàng</p>
-                    </div>
-                    {/* center */}
-                    <Flex
-                      direction="column"
-                      className="header__cart-dropdown-center"
-                    >
-                      <div className="header__cart-dropdown-icon">
-                        <IoCartOutline className="icon" />
-                      </div>
-                      <div className="header__cart-dropdown-message">
-                        <p>Giỏ hàng của bạn đang trống!</p>
-                      </div>
-                    </Flex>
-                    {/* bottom */}
-                    <Flex
-                      direction="column"
-                      className="header__cart-dropdown-bottom"
-                    >
-                      <Flex
-                        direction="row"
-                        className="header__cart-dropdown-summary"
-                      >
-                        <p>Tổng số tiền tạm tính</p>
-                        <p className="text-red-600">0đ</p>
-                      </Flex>
-                      <Flex
-                        direction="row"
-                        className="header__cart-dropdown-actions"
-                      >
-                        <Button variant="outline" color="#000">
-                          Chỉnh sửa giỏ hàng
-                        </Button>
-                        <Button variant="filled" color="#ed1b24">
-                          Thanh toán
-                        </Button>
-                      </Flex>
-                    </Flex>
-                  </div>
-                </Popover.Dropdown>
-              </Popover>
+              <ButtonCart/>
 
               {/*button-đăng nhập */}
               <div className="header__user">
@@ -205,20 +73,11 @@ const Header = () => {
           </div>
           {/* start header center */}
           <div className="header__center">
-            {/* form tìm kiếm online */}
+            {/* InputSeachMoblie */}
             <div className="header__inputSeach">
-              <form action="">
-                <input
-                  type="text"
-                  placeholder="Nhập tên sản phẩm, từ khóa cần tìm"
-                  className=""
-                />
-                <button>
-                  <CiSearch className="header__inputSeach-icon" />
-                </button>
-              </form>
+              <InputSeach onPopoverChange={handlePopoverChange} />
             </div>
-            {/* end form tìm kiếm online */}
+            {/* end InputSeachMoblie*/}
 
             {/*Start nav deskop */}
             <div
@@ -226,7 +85,10 @@ const Header = () => {
             >
               {navItems.map((item, index) => (
                 <div className="header__nav-item" key={index}>
-                  <div className="header__nav-item_name">
+                  <div
+                    className={`header__nav-item_name ${activeIndex == index ? "active" : ""}`}
+                    onClick={() => onhandleNavItemName(item.text, index)}
+                  >
                     <img src={item.imageSrc} alt={item.text} />
                     <p>{item.text}</p>
                   </div>
@@ -257,11 +119,16 @@ const Header = () => {
             <div
               className={`sub__menu_mobile ${isMenuMobileOpen == true ? "show" : "hide"}`}
             >
-              <h3>Sửa chữa Laptop</h3>
-              <button>Sửa Main Laptop</button>
-              <button>Sửa Main Laptop</button>
-              <button>Sửa Main Laptop</button>
-              <button>Sửa Main Laptop</button>
+              <div className="sub__menu_mobile-item">
+                <h3>{dataSubMenuMobile?.title}</h3>
+                <ul>
+                  {dataSubMenuMobile?.items.map(
+                    (subItem: any, subIndex: number) => {
+                      return <button key={subIndex}>{subItem}</button>;
+                    }
+                  )}
+                </ul>
+              </div>
             </div>
             {/* endsubMobile */}
           </div>
@@ -269,7 +136,7 @@ const Header = () => {
 
           {/* StartHeader Bootom */}
           <div
-            className={`header__bottom ${isMenuOpen == true ? "header_bottom_orverlay" : ""} `}
+            className={`header__bottom ${isMenuOpen == true || isPopoverOpen == true ? "header_bottom_orverlay" : ""} `}
           >
             <div className="header__bottom-item current-page">
               <IoHomeOutline />
@@ -281,6 +148,7 @@ const Header = () => {
       </header>
       {/* Overlay background */}
       {isMenuOpen && <div className="overlay" onClick={toggleMenu}></div>}
+      {isPopoverOpen == true && <div className="overlay"> </div>}
     </>
   );
 };

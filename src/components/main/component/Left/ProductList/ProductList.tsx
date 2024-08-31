@@ -13,6 +13,15 @@ const ProductList = (props: Props) => {
     slidesToShow: 3,
     slidesToScroll: 1,
     speed: 500,
+    responsive: [
+      {
+        breakpoint: 799,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
   return (
     <div className="product-list ">

@@ -122,6 +122,10 @@
       font-weight: 600;
       color: #ed1b24;
       margin-left: 5px;
+      @media (max-width: 799px) {
+        font-size: .657rem;
+        line-height: 1.05rem;
+      }
     }
   }
   .slider-item__price {

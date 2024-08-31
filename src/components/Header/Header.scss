@@ -19,6 +19,10 @@ header {
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(1px); /* Làm mờ phần tử phía sau overlay */
   z-index: 40; /* Đảm bảo lớp phủ nằm trên nội dung */
+  @media (max-width: 799px) {
+    z-index: 1000;
+    top: 100px;
+  }
 }
 .header_bottom_orverlay {
   position: absolute;
@@ -60,49 +64,7 @@ header {
     }
   }
 }
-.header_actions {
-  flex: 80%;
-  display: flex;
-  gap: 12px;
-  justify-content: space-between;
-  form {
-    max-width: 644px;
-    width: 100%;
-    position: relative;
-    input {
-      border: 1px solid $primary-color;
-      border-radius: 55px;
-      // width: 644px;
-      // max-width: 644px important!;
-      width: 100%;
-      height: 100%;
-      padding-left: 10px;
-      font-size: 14px;
-      padding-top: 10px;
-      padding-bottom: 10px;
-    }
-    button {
-      position: absolute;
-      width: 50px;
-      border-radius: 0 20px 20px 0;
-      background-color: $primary-color;
-      color: #fff;
-      height: 100%;
-      right: 0;
-      .icon__confirm {
-        font-size: 18px;
-        font-weight: 700;
-        margin: 0 auto;
-      }
-    }
-  }
-  @media (max-width: 799px) {
-    justify-content: flex-end;
-    form {
-      display: none;
-    }
-  }
-}
+
 .header__menu {
   cursor: pointer;
   display: flex;
@@ -145,7 +107,7 @@ header {
     }
   }
   &-button {
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 700;
     white-space: nowrap; // Ngăn văn bản bị xuống dòng
     @media (max-width: 600px) {
@@ -210,43 +172,9 @@ header {
     grid-template-columns: auto auto auto auto auto auto auto auto;
     text-align: center;
   }
-  .header__inputSeach {
-    display: none;
-    position: relative;
-    input {
-      border: 1px solid $primary-color;
-      border-radius: 55px;
-      // width: 644px;
-      // max-width: 644px important!;
-      width: 100%;
-      height: 100%;
-      padding-left: 10px;
-      font-size: 14px;
-      padding-top: 10px;
-      padding-bottom: 10px;
-    }
-    button {
-      position: absolute;
-      width: 50px;
-      border-radius: 0 20px 20px 0;
-      background-color: $primary-color;
-      color: #fff;
-      height: 100%;
-      right: 0;
-      .header__inputSeach-icon {
-        font-size: 18px;
-        font-weight: 700;
-        margin: 0 auto;
-      }
-    }
-  }
+
   .sub__menu_mobile {
     display: none;
-  }
-  @media (max-width: 799px) {
-    .header__inputSeach {
-      display: block;
-    }
   }
 }
 
@@ -265,10 +193,13 @@ header {
       filter: brightness(0) invert(1); // Thay đổi màu ảnh thành trắng
     }
     p {
-      width: 100%;
+      // width: 100%;
       font-weight: 700;
-      font-size: 12px;
-      text-transform: uppercase;
+      font-size: 14.5px;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
   }
 }
@@ -276,6 +207,7 @@ header {
 .header__nav {
   .header__nav-item {
     // position: relative;
+    cursor: pointer;
     .item__subMenu {
       display: none;
       // display: grid;
@@ -346,6 +278,7 @@ header {
     position: relative;
     .header__nav {
       display: none;
+      height: 100vh;
       // display: flex;
       flex-direction: column;
       width: 80px;
@@ -357,6 +290,14 @@ header {
             width: 35px;
             height: 35px;
           }
+          p {
+            font-size: 12px;
+            flex-wrap: wrap;
+            -webkit-line-clamp: 2;
+          }
+        }
+        .header__nav-item_name.active {
+          background-color: #ea494c;
         }
       }
     }
@@ -404,65 +345,3 @@ header {
   }
 }
 
-//  header__cart-dropdown
-
-.header__cart-dropdown {
-  z-index: 1000 !important;
-  padding: 20px 10px !important;
-
-  &-main {
-    padding: 0 !important;
-
-    .header__cart-dropdown-top {
-      text-align: center;
-      p {
-        font-weight: 500;
-        font-size: 18px;
-      }
-    }
-    .header__cart-dropdown-center {
-      align-items: center;
-      margin-top: 5px;
-      padding-bottom: 5px;
-      border-bottom: 1px solid #e5e5e5;
-      .header__cart-dropdown-icon {
-        font-size: 70px;
-        color: #000;
-      }
-      .header__cart-dropdown-message {
-        margin-top: 5px;
-        p {
-          font-size: 16px;
-          font-weight: 600;
-        }
-      }
-    }
-    .header__cart-dropdown-bottom {
-      gap: 10px;
-      .header__cart-dropdown-summary {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 10px;
-        p {
-          font-size: 16px;
-          font-weight: 500;
-        }
-      }
-      .header__cart-dropdown-actions {
-        font-size: 13px;
-        justify-content: space-between;
-      }
-    }
-  }
-}
-@media (max-width: 599px) {
-  .header__cart-dropdown {
-    position: absolute;
-    width: 100% !important;
-  }
-}
-
-// header__inputSeach__dropdown
-.header__search-dropdown{
-  z-index: 1000 !important;
-}
