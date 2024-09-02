@@ -1,4 +1,5 @@
-import { Box, Button, Flex, Progress, Rating } from "@mantine/core";
+import { Box, Flex, Progress, Rating } from "@mantine/core";
+import CommentRating from "./CommentRating/CommentRating";
 import "./Rating.scss";
 const RatingProductDetail = () => {
   return (
@@ -187,12 +188,7 @@ const RatingProductDetail = () => {
             </Flex>
 
             <div className="rating-divider-col">{/* thanh ngang */}</div>
-            <Flex direction="column" className="rating-feedback">
-              <p>Chia sẻ nhận xét về sản phẩm</p>
-              <Button color="#f72429" className="rating-feedback-button">
-                Viết nhận xét của bạn
-              </Button>
-            </Flex>
+           <CommentRating/>
           </Flex>
 
           {/* end-rating-bottom */}

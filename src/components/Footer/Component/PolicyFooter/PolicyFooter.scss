@@ -1,0 +1,46 @@
+.polycy_footer {
+  margin-top: 30px;
+  .mantine-Grid-inner {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    @media (max-width: 1400px) {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+    @media (max-width: 1200px) {
+      padding-left: 10px;
+
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    @media (max-width: 990px) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}
+
+.company-info {
+  &__title {
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-size: 15px;
+  }
+  &__item {
+    font-size: 12px;
+    color: #000;
+    margin-bottom: 5px;
+  }
+  .imageMaster {
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 2px;
+    .imageMasterCart {
+      width: 65px;
+      height: 30px;
+      object-fit: contain;
+      box-shadow:
+        0 1px 1px 0 rgba(0, 0, 0, 0.1),
+        0 1px 2px -1px rgba(0, 0, 0, 0.1);
+    }
+  }
+}

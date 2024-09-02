@@ -1,12 +1,15 @@
-import { Grid, Input } from "@mantine/core";
+import Footer from "@/components/Footer/Footer";
+import Comment from "@/components/main/component/Left/Comment/Comment";
+import ProductList from "@/components/main/component/Left/ProductList/ProductList";
+import TittleName from "@/components/main/component/Left/TitleName/TittleName";
+import { Flex, Grid } from "@mantine/core";
 import Header from "../components/Header/Header";
 import DescriptionProduct from "../components/main/component/Left/Description/DescriptionProduct";
 import RatingProductDetail from "../components/main/component/Left/Rating/Rating";
 import SliderProduct from "../components/main/component/Left/SliderProductDetail/SliderProduct";
 import ProductDetail_Info from "../components/main/component/Right/ProductDetail_Info/ProductDetail_Info";
-import TittleName from "@/components/main/component/Left/TitleName/TittleName";
-import Comment from "@/components/main/component/Left/Comment/Comment";
-import ProductList from "@/components/main/component/Left/ProductList/ProductList";
+import ContactInFoating from "@/components/main/component/ContactInfoating/ContactInFoating";
+
 const ProductDetail = () => {
   return (
     <>
@@ -61,7 +64,11 @@ const ProductDetail = () => {
           </Grid>
         </div>
       </main>
-      <div className="h-[1000px]">sfse</div>
+
+      {/* Footer */}
+      <Footer />
+      {/* <div className="h-[1000px]">sfse</div> */}
+      <ContactInFoating/>
     </>
   );
 };

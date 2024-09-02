@@ -1,0 +1,43 @@
+// .modal__sendContact.mantine-Modal-root
+//   .mantine-Modal-inner
+//   .mantine-Modal-content {
+//   width: 100% !important;
+// }
+.modal__sendContact {
+  .mantine-Modal-header {
+    background-color: #ed1b24;
+    .mantine-Modal-title {
+      font-weight: 700 !important;
+      font-size: 20px;
+      color: #fff;
+    }
+  }
+  .warranty-form {
+    .form-container {
+      .form-row {
+        justify-content: space-between;
+        .input- {
+          width: 297px !important;
+          padding: 8px;
+          label {
+            font-weight: 700;
+          }
+        }
+      }
+      .input-textarea {
+        padding: 8px;
+        label {
+          font-weight: 700 !important;
+        }
+      }
+      @media (max-width: 990px) {
+        .form-row {
+          flex-direction: column !important;
+          .input- {
+            width: 100% !important;
+          }
+        }
+      }
+    }
+  }
+}

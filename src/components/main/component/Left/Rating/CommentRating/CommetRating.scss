@@ -1,0 +1,44 @@
+.rating-feedback {
+}
+.mantine-Modal-root {
+  width: 300px !important;
+  .mantine-Modal-header {
+    .mantine-Modal-close {
+      background-color: #fc8585;
+      border-radius: 50%;
+      color: #fff;
+    }
+    box-shadow: none;
+  }
+  .mantine-Modal-overlay {
+    z-index: 1000;
+  }
+  .mantine-Modal-inner {
+    z-index: 1000;
+    .mantine-Modal-content {
+      max-width: 90% !important;
+    }
+  }
+}
+.comment-rating__form {
+  margin-top: 10px;
+  .comment-rating__form-title {
+    font-weight: 700;
+  }
+  .comment-rating__form-subtitle {
+    font-weight: 700;
+    margin-top: 15px;
+  }
+  .comment-rating__input,
+  .comment-rating__textarea {
+    margin-top: 15px;
+    label {
+      font-weight: 600;
+    }
+  }
+  .comment-rating__submit {
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+}

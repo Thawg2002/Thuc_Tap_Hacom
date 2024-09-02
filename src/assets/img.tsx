@@ -8,6 +8,9 @@ import iamgeCpu from "@/assets/img/imageCpu.jpg";
 import banphimlaptop from "@/assets/img/banphimLaptop.jpg";
 import image_dropdown_InputSeach from "@/assets/img/image_dropdown_InputSeach.png";
 import image_dropdown_InputSeach2 from "@/assets/img/image_dropdown_InputSeach2.png";
+import imageCoreBannerFooter from "../assets/img/imageCoreBannerFooter.svg";
+import masterCard from "../assets/img/masterCard.png";
+import logoHacom from "./img/logoHacom.png";
 export {
   logo,
   image_laptop,
@@ -19,4 +22,7 @@ export {
   banphimlaptop,
   image_dropdown_InputSeach,
   image_dropdown_InputSeach2,
+  imageCoreBannerFooter,
+  masterCard,
+  logoHacom,
 };

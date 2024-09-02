@@ -1,0 +1,44 @@
+// Thông tin liên hệ : contact_information
+.contact-floating-box {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 1000; /* Đảm bảo nó luôn hiển thị trên cùng */
+}
+.contact-box-container {
+  .contact-item {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.08);
+    padding: 6px 14px;
+    gap: 10px;
+    .contact-icon {
+      font-size: 30px;
+      color: #ed1b24;
+    }
+    .contact-text {
+      font-size: 12px;
+      .lable-text {
+        font-weight: bold;
+      }
+    }
+  }
+}
+.contact-box-container {
+  .firt-icon {
+    color: #fff;
+    background-color: #ed1b24;
+    .contact-icon {
+      color: #fff;
+    }
+    .contact-text {
+      p {
+        font-size: 14px;
+      }
+    }
+  }
+}
